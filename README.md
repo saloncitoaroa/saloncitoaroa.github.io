@@ -32,7 +32,7 @@ Abre `index.html` en el navegador; no hace falta servidor. Después de cambiar c
 ## Pendiente
 
 - Las imágenes (logo, fotos del local, Instagram, mapa) apuntan a URLs temporales de `lh3.googleusercontent.com` del diseño. Hay que sustituirlas por fotos reales guardadas en `assets/`.
-- Confirmar precios, horarios y textos con el salón.
+- Confirmar precios y textos con el salón.
 git fetch origin claude/new-session-b41j28
 git checkout claude/new-session-b41j28
 ROOT=$(git commit-tree $(git hash-object -t tree /dev/null) -m "Initial commit")
