@@ -19,6 +19,12 @@ Funciones: selector de idioma ES/CA, filtro de tratamientos por categoría, form
 | `DESIGN.md` | Guía del sistema de diseño "Serene Spa & Aesthetics" |
 | `design/` | Exportaciones originales de escritorio y móvil, como referencia |
 
+## Publicación
+
+La web se publica en GitHub Pages: https://yeray03izquierdo.github.io/saloncitoaroa/
+
+Cada push a `main` compila el CSS y despliega `index.html` y `assets/` (workflow `.github/workflows/pages.yml`). En *Settings → Pages*, la fuente debe ser **GitHub Actions**.
+
 ## Desarrollo
 
 ```bash
@@ -32,7 +38,7 @@ Abre `index.html` en el navegador; no hace falta servidor. Después de cambiar c
 ## Pendiente
 
 - Las imágenes (logo, fotos del local, Instagram, mapa) apuntan a URLs temporales de `lh3.googleusercontent.com` del diseño. Hay que sustituirlas por fotos reales guardadas en `assets/`.
-- Confirmar precios y textos con el salón.
+- Confirmar tarifas, precios y textos con el salón.
 git fetch origin claude/new-session-b41j28
 git checkout claude/new-session-b41j28
 ROOT=$(git commit-tree $(git hash-object -t tree /dev/null) -m "Initial commit")
