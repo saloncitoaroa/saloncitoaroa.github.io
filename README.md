@@ -39,5 +39,5 @@ Abre `index.html` en el navegador; no hace falta servidor. Después de cambiar c
 
 ## Pendiente
 
-- Las imágenes (logo, fotos del local, Instagram, mapa) apuntan a URLs temporales de `lh3.googleusercontent.com` del diseño. Hay que sustituirlas por fotos reales guardadas en `assets/`.
+- El logo ya es el definitivo (`assets/logo.png`). Las demás imágenes (fotos del local, Instagram, mapa) apuntan a URLs temporales de `lh3.googleusercontent.com` del diseño. Hay que sustituirlas por fotos reales guardadas en `assets/`.
 - Confirmar tarifas, precios y textos con el salón.
