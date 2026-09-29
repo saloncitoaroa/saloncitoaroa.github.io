@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yeray03izquierdo/saloncitoaroa.git"
+    "url": "git+https://github.com/saloncitoaroa/saloncitoaroa.github.io.git"
   },
   "bugs": {
-    "url": "https://github.com/yeray03izquierdo/saloncitoaroa/issues"
+    "url": "https://github.com/saloncitoaroa/saloncitoaroa.github.io/issues"
   },
-  "homepage": "https://github.com/yeray03izquierdo/saloncitoaroa#readme",
+  "homepage": "https://saloncitoaroa.github.io/",
   "devDependencies": {
     "tailwindcss": "^3.4.19"
   },
