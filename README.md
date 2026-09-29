@@ -21,9 +21,23 @@ Funciones: selector de idioma ES/CA, filtro de tratamientos por categoría, form
 
 ## Publicación
 
-La web se publica en GitHub Pages: https://yeray03izquierdo.github.io/saloncitoaroa/
+La web se publica en GitHub Pages: **https://saloncitoaroa.github.io/**
+
+Para que la dirección sea la raíz de `saloncitoaroa.github.io` (sin `/saloncitoaroa/` al final), el repositorio debe llamarse exactamente `saloncitoaroa.github.io` (*Settings → General → Repository name*). Mientras se llame `saloncitoaroa`, la web queda en https://saloncitoaroa.github.io/saloncitoaroa/. Todas las rutas de `index.html` son relativas, así que funciona en ambos casos y también con un dominio propio en el futuro (se añadirá un archivo `CNAME`).
 
 Cada push a `main` compila el CSS y despliega `index.html` y `assets/` (workflow `.github/workflows/pages.yml`). En *Settings → Pages*, la fuente debe ser **GitHub Actions**.
+
+## Reseñas de Google
+
+La valoración y el número de reseñas que muestra la web salen de `assets/reviews.json`. El workflow de publicación se ejecuta cada día (y en cada push a `main`) y, antes de publicar, `scripts/update-reviews.mjs` pide los datos actuales a Google Places API y reescribe ese archivo. Si falla o no hay clave, la web sigue mostrando los valores guardados en el repositorio (ahora 5,0 ★ y 48 reseñas).
+
+Para activarlo:
+
+1. En [Google Cloud Console](https://console.cloud.google.com/) crea un proyecto, activa **Places API (New)** y crea una clave de API (hace falta una cuenta de facturación, pero una consulta al día queda dentro del uso gratuito). Restringe la clave a *Places API (New)*.
+2. En GitHub, *Settings → Secrets and variables → Actions*: crea el secreto `GOOGLE_PLACES_API_KEY` con la clave.
+3. Opcional: la primera ejecución escribe en el log el Place ID del salón; guárdalo como variable `GOOGLE_PLACE_ID` en la misma pantalla para no depender de la búsqueda por nombre.
+
+GitHub desactiva las tareas programadas si el repositorio pasa 60 días sin actividad; en ese caso se reactivan desde la pestaña *Actions*.
 
 ## Desarrollo
 
@@ -37,11 +51,5 @@ Abre `index.html` en el navegador; no hace falta servidor. Después de cambiar c
 
 ## Pendiente
 
-- Las imágenes (logo, fotos del local, Instagram, mapa) apuntan a URLs temporales de `lh3.googleusercontent.com` del diseño. Hay que sustituirlas por fotos reales guardadas en `assets/`.
+- El logo ya es el definitivo (`assets/logo.png`). Las demás imágenes (fotos del local, Instagram, mapa) apuntan a URLs temporales de `lh3.googleusercontent.com` del diseño. Hay que sustituirlas por fotos reales guardadas en `assets/`.
 - Confirmar tarifas, precios y textos con el salón.
-git fetch origin claude/new-session-b41j28
-git checkout claude/new-session-b41j28
-ROOT=$(git commit-tree $(git hash-object -t tree /dev/null) -m "Initial commit")
-git push origin $ROOT:refs/heads/main
-git rebase --onto $ROOT --root
-git push --force-with-lease origin claude/new-session-b41j28
