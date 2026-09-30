@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saloncitoaroa.github.io/sitemap.xml

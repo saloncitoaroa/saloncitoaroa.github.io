@@ -27,6 +27,12 @@ Para que la dirección sea la raíz de `saloncitoaroa.github.io` (sin `/saloncit
 
 Cada push a `main` compila el CSS y despliega `index.html` y `assets/` (workflow `.github/workflows/pages.yml`). En *Settings → Pages*, la fuente debe ser **GitHub Actions**.
 
+## Posicionamiento en Google
+
+- `index.html` declara la dirección oficial (`<link rel="canonical">`), las etiquetas Open Graph para compartir por WhatsApp o redes (imagen `assets/og-image.jpg`, 1200×630) y los datos del negocio en JSON-LD (`BeautySalon`: dirección, teléfono, horario, Instagram). Si cambia el horario, el teléfono o la dirección, hay que actualizarlos también ahí.
+- `robots.txt` y `sitemap.xml` se publican en la raíz. Al añadir páginas, inclúyelas en el sitemap y actualiza `lastmod`.
+- Al pasar a un dominio propio, cambia `https://saloncitoaroa.github.io/` por el nuevo dominio en `index.html`, `robots.txt` y `sitemap.xml`, y añade el archivo `CNAME`.
+
 ## Reseñas de Google
 
 La valoración y el número de reseñas que muestra la web salen de `assets/reviews.json`. El workflow de publicación se ejecuta cada día (y en cada push a `main`) y, antes de publicar, `scripts/update-reviews.mjs` pide los datos actuales a Google Places API y reescribe ese archivo. Si falla o no hay clave, la web sigue mostrando los valores guardados en el repositorio (ahora 5,0 ★ y 48 reseñas).
