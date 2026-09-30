@@ -34,6 +34,23 @@ Cada push a `main` compila el CSS y despliega `index.html` y `assets/` (workflow
 - `robots.txt` y `sitemap.xml` se publican en la raíz. Al añadir páginas, inclúyelas en el sitemap y actualiza `lastmod`.
 - Al pasar a un dominio propio, cambia `https://saloncitoaroa.github.io/` por el nuevo dominio en `index.html`, `robots.txt` y `sitemap.xml`, y añade el archivo `CNAME`.
 
+## Textos legales y privacidad
+
+- `aviso-legal.html`, `privacidad.html` y `cookies.html` se generan con `python3 scripts/legal-pages.py` (los textos y los datos del titular están en ese script). Después, `npm run build`.
+- Los datos del titular pendientes se marcan como `PENDIENTE(...)` en el script y salen resaltados en las páginas hasta que se rellenan.
+- Los formularios de cita y tarjeta regalo piden aceptar la política de privacidad antes de abrir WhatsApp.
+- La web no usa cookies ni servicios de terceros: tipografías e iconos se sirven desde `assets/fonts`. Si se añade analítica, mapas o contenido de redes sociales incrustado, hará falta un aviso de consentimiento de cookies y actualizar `cookies.html`.
+
+### Iconos
+
+`assets/fonts/material-symbols-outlined.woff2` solo contiene los iconos que usan las páginas. Al añadir un icono nuevo (`<span class="material-symbols-outlined">nombre</span>`), regenera la fuente:
+
+```bash
+npm install --no-save material-symbols
+pip install fonttools brotli uharfbuzz
+python3 scripts/subset-icons.py
+```
+
 ## Reseñas de Google
 
 La valoración y el número de reseñas que muestra la web salen de `assets/reviews.json`. El workflow de publicación se ejecuta cada día (y en cada push a `main`) y, antes de publicar, `scripts/update-reviews.mjs` pide los datos actuales a Google Places API y reescribe ese archivo. Si falla o no hay clave, la web sigue mostrando los valores guardados en el repositorio (ahora 5,0 ★ y 48 reseñas).
