@@ -30,6 +30,7 @@ Cada push a `main` compila el CSS y despliega `index.html` y `assets/` (workflow
 ## Posicionamiento en Google
 
 - `index.html` declara la dirección oficial (`<link rel="canonical">`), las etiquetas Open Graph para compartir por WhatsApp o redes (imagen `assets/og-image.jpg`, 1200×630) y los datos del negocio en JSON-LD (`BeautySalon`: dirección, teléfono, horario, Instagram). Si cambia el horario, el teléfono o la dirección, hay que actualizarlos también ahí.
+- `googlecc6b4fff39fc0c5d.html` verifica la propiedad en Google Search Console: no lo borres.
 - `robots.txt` y `sitemap.xml` se publican en la raíz. Al añadir páginas, inclúyelas en el sitemap y actualiza `lastmod`.
 - Al pasar a un dominio propio, cambia `https://saloncitoaroa.github.io/` por el nuevo dominio en `index.html`, `robots.txt` y `sitemap.xml`, y añade el archivo `CNAME`.
 
